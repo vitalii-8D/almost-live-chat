@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "almost-live-chat"
+    }
+  },
+  "defaultProject": "almost-live-chat",
+  "cli": {
+    "analytics": false
+  }
 }
