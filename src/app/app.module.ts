@@ -12,7 +12,12 @@ import { ChatComponent } from './components/chat/chat.component';
 import { SideSectionComponent } from './components/side-section/side-section.component';
 import { ChatZoneComponent } from './components/chat-zone/chat-zone.component';
 import { UserComponent } from './components/user/user.component';
-import { UserIntroComponent } from './components/user-intro/user-intro.component';
+import { UserSearchComponent } from './components/user-search/user-search.component';
+import { UserItemComponent } from './components/user-item/user-item.component';
+import { UserListComponent } from './components/user-list/user-list.component';
+import {CommonModule} from '@angular/common';
+import { ChatFormComponent } from './components/chat-form/chat-form.component';
+import { FeedComponent } from './components/feed/feed.component';
 
 @NgModule({
   declarations: [
@@ -21,10 +26,15 @@ import { UserIntroComponent } from './components/user-intro/user-intro.component
     SideSectionComponent,
     ChatZoneComponent,
     UserComponent,
-    UserIntroComponent
+    UserSearchComponent,
+    UserItemComponent,
+    UserListComponent,
+    ChatFormComponent,
+    FeedComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule

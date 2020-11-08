@@ -3,6 +3,7 @@
 * {
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
+  color: #6C6C6C;
 
   box-sizing: border-box;
 }
@@ -53,4 +54,30 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+input,
+label,
+select,
+button,
+textarea
+{
+  margin:0;
+  border:0;
+  padding:0;
+  display:inline-block;
+  vertical-align:middle;
+  white-space:normal;
+  background:none;
+  line-height:1;
+
+  /* Browsers have different default form fonts */
+  font-size:13px;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Remove the stupid outer glow in Webkit */
+input:focus
+{
+  outline:0;
 }
