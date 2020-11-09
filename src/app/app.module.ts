@@ -19,6 +19,8 @@ import {CommonModule} from '@angular/common';
 import { ChatFormComponent } from './components/chat-form/chat-form.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { MessageComponent } from './components/message/message.component';
+import {DataBaseService} from './services/data-base.service';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -39,9 +41,10 @@ import { MessageComponent } from './components/message/message.component';
     CommonModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    FormsModule
   ],
-  providers: [ChatBaseService],
+  providers: [ChatBaseService, DataBaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

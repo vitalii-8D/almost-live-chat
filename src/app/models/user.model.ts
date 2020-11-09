@@ -1,10 +1,10 @@
 export interface IUser {
-  id?: string;
+  id?: number;
   name?: string;
   username?: string;
   password?: string;
   status?: string;
   avatar?: string;
-  chat_rooms?: string[];
+  chatRooms?: string[];
   createdAt?: any;
 }
