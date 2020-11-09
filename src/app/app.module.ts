@@ -18,6 +18,7 @@ import { UserListComponent } from './components/user-list/user-list.component';
 import {CommonModule} from '@angular/common';
 import { ChatFormComponent } from './components/chat-form/chat-form.component';
 import { FeedComponent } from './components/feed/feed.component';
+import { MessageComponent } from './components/message/message.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { FeedComponent } from './components/feed/feed.component';
     UserItemComponent,
     UserListComponent,
     ChatFormComponent,
-    FeedComponent
+    FeedComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,

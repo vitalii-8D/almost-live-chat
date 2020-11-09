@@ -1,7 +1,8 @@
-interface IMessage {
-  body?: string;
-  user_id?: string;
-  createdAt?: any;
+export interface IMessage {
+  body: string;
+  createdAt: any;
+  user_id: string;
+  isMyMsg?: boolean;
 }
 
 export interface IChat {
