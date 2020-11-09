@@ -12,15 +12,7 @@ export class UserItemComponent implements OnInit {
   @Input() withNoName: boolean;
   @Input() isSideUser: boolean;
 
-  @Input() user = {
-    chatRooms: ['88888'],
-    username: 'corp_riashko',
-    name: 'Andrii Riashko',
-    status: 'online',
-    id: '33333',
-    avatar: 'https://via.placeholder.com/200/EE3E11/EE3E11?Text=Digital.com',
-    isOnline: true
-  };
+  @Input() user: IUser;
 
   constructor(public chatService: ChatBaseService) {
   }

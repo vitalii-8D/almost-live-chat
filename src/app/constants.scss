@@ -1,0 +1,19 @@
+$light-grey: #FAFAFA;
+$garkest-grey: #F5F5F5;
+$for-border: #B8B8B8;
+
+$coloe-font-dark: #2A2A2B;
+$coloe-font-grey: #5F5F5F;
+$coloe-font-lightfrey: #7B7B7B;
+$coloe-font-light: #A9A9A9;
+
+@mixin full-width-height {
+  width: 100%;
+  height: 100vh;
+  max-width: 1472px;
+}
+@mixin flex-container-full {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

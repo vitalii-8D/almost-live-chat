@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {IUser} from '../models/user.model';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,38 @@ import {IUser} from '../models/user.model';
 export class DataBaseService {
 
   constructor(private firestore: AngularFirestore) {
+  }
+
+  getAllUsers(): Observable<IUser[]> {
+    return this.firestore.collection('users').valueChanges();
+  }
+
+  getAllChats(): any {
+    return this.firestore.collection('chats').valueChanges();
+  }
+
+  getUserByParam(param, value): Observable<IUser[]> {
+    return this.firestore.collection('users', ref => ref.where(param, '==', value)).valueChanges();
+  }
+
+  createUser(data): any {
+    return new Promise<any>((resolve, reject) => {
+      this.firestore
+        .collection('users')
+        .add(data)
+        .then(res => {
+        }, err => reject(err));
+    });
+  }
+
+  createChat(data): any {
+    return new Promise<any>((resolve, reject) => {
+      this.firestore
+        .collection('chats')
+        .add(data)
+        .then(res => {
+        }, err => reject(err));
+    });
   }
 
   buildUser(name, username, password, m = 1, h = 0, d = 0): IUser {

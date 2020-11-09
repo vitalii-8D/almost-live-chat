@@ -11,7 +11,6 @@ import {ChatBaseService} from './services/chat-base.service';
 import { ChatComponent } from './components/chat/chat.component';
 import { SideSectionComponent } from './components/side-section/side-section.component';
 import { ChatZoneComponent } from './components/chat-zone/chat-zone.component';
-import { UserComponent } from './components/user/user.component';
 import { UserSearchComponent } from './components/user-search/user-search.component';
 import { UserItemComponent } from './components/user-item/user-item.component';
 import { UserListComponent } from './components/user-list/user-list.component';
@@ -21,6 +20,8 @@ import { FeedComponent } from './components/feed/feed.component';
 import { MessageComponent } from './components/message/message.component';
 import {DataBaseService} from './services/data-base.service';
 import {FormsModule} from '@angular/forms';
+import { LoginPageComponent } from './components/login-page/login-page.component';
+import { SignPageComponent } from './components/sign-page/sign-page.component';
 
 @NgModule({
   declarations: [
@@ -28,13 +29,14 @@ import {FormsModule} from '@angular/forms';
     ChatComponent,
     SideSectionComponent,
     ChatZoneComponent,
-    UserComponent,
     UserSearchComponent,
     UserItemComponent,
     UserListComponent,
     ChatFormComponent,
     FeedComponent,
-    MessageComponent
+    MessageComponent,
+    LoginPageComponent,
+    SignPageComponent
   ],
   imports: [
     BrowserModule,

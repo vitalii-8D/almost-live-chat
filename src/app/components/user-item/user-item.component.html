@@ -5,9 +5,10 @@
       <img src="{{user.avatar}}" alt="{{user.name}}">
     </div>
 
-    <span [ngClass]="{'active': !!withNoName || user.isOnline}" class="material-icons online-mark online">check_circle_outline</span>
-    <span [ngClass]="{'active': !withNoName && !user.isOnline}" class="material-icons online-mark">highlight_off</span>
+    <span class="material-icons online-mark online">check_circle_outline</span>
   </div>
+<!--    [ngClass]="{'active': !!withNoName || user.status === 'online'}"-->
+<!--    <span [ngClass]="{'active': !withNoName && !user.status === 'online'}" class="material-icons online-mark">highlight_off</span>-->
 
   <div class="user-name" *ngIf="!withNoName && !isSideUser">
     {{user.name}}
