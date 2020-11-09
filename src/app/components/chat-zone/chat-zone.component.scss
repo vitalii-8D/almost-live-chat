@@ -1,0 +1,27 @@
+.container {
+  width: 100%;
+  height: 100vh;
+
+  >* {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .user-field {
+    height: 82px;
+    background-color: #F5F5F5;
+    border-bottom: 2px solid #cccccc;
+  }
+
+  .feed {
+    height: calc(100vh - 82px - 140px);
+    background-color: #FCFCFC;
+  }
+
+  .chat-form {
+    height: 140px;
+    background-color: #F5F5F5;
+    border-top: 2px solid #cccccc;
+
+  }
+}

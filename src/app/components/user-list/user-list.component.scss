@@ -1,0 +1,15 @@
+.container {
+  width: 100%;
+  height: calc(100vh - 160px - 120px);
+  overflow-y: auto;
+  overflow: -moz-scrollbars-none;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+::-webkit-scrollbar-button {
+
+}

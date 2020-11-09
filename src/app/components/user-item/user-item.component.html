@@ -1,0 +1,26 @@
+<div class="container" [ngClass]="{'bg-c_white': isSideUser, 'no-border': withNoName}">
+
+  <div class="avatar-container">
+    <div class="user-img">
+      <img src="{{user.avatar}}" alt="{{user.name}}">
+    </div>
+
+    <span [ngClass]="{'active': !!withNoName || user.isOnline}" class="material-icons online-mark online">check_circle_outline</span>
+    <span [ngClass]="{'active': !withNoName && !user.isOnline}" class="material-icons online-mark">highlight_off</span>
+  </div>
+
+  <div class="user-name" *ngIf="!withNoName && !isSideUser">
+    {{user.name}}
+  </div>
+
+  <div class="user-side-name" *ngIf="isSideUser">
+
+    <div class="info">
+
+      <div class="name">{{user.name}}</div>
+      <div class="timestamp">{{'jun 12, 2017'}}</div>
+    </div>
+    <div class="message">{{'Hellom whats up?'}}</div>
+  </div>
+
+</div>

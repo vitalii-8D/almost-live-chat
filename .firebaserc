@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "almost-live-chat": {
+      "hosting": {
+        "almost-live-chat": [
+          "almost-live-chat"
+        ]
+      }
+    }
+  }
+}

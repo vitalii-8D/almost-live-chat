@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="user-field">
+    <app-user-item></app-user-item>
+  </div>
+  <div class="feed">
+    <app-feed *ngIf="chats?.length" [messages]="chats[0].messages" [members]="chats[0].members"></app-feed>
+  </div>
+  <div class="chat-form">
+    <app-chat-form></app-chat-form>
+  </div>
+</div>

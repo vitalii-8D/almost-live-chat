@@ -1,0 +1,23 @@
+<div class="container" [ngClass]="{'isMyMsg': message.isMyMsg}">
+
+  <div class="avatar-container" *ngIf="!message.isMyMsg">
+    <div class="user-img">
+      <img src="{{user?.avatar}}" alt="{{user?.name}}">
+    </div>
+  </div>
+
+  <div class="msg-container" [ngClass]="{'isMyMsg': message.isMyMsg}">
+
+    <div class="msg" [ngClass]="{'isMyMsg': message.isMyMsg}">
+      {{message?.body}}
+    </div>
+
+    <div class="timestamp" [ngClass]="{'isMyMsg': message.isMyMsg}">
+
+      {{message?.createdAt | date:'short'}}
+
+    </div>
+
+  </div>
+
+</div>

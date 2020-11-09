@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  max-width: 1472px;
+
+  .side-section {
+    width: 30%;
+    min-width: 220px;
+    border-left: 2px solid #cccccc;
+
+    background-color: #FFFFFF;
+  }
+
+  .chat-zone {
+    width: 70%;
+    min-width: 260px;
+
+    background-color: #FFFFFF;
+    border-left: 2px solid #cccccc;
+    border-right: 2px solid #cccccc;
+  }
+}

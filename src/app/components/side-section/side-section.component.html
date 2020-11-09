@@ -1,0 +1,16 @@
+<div class="container">
+
+  <div class="profile-section">
+
+    <app-user-item [withNoName]="true" [user]="this.chatService.authUser"></app-user-item>
+    <app-user-search></app-user-search>
+
+  </div>
+
+  <div class="users-section">
+
+    <h2 class="users-section-title">Chats</h2>
+    <app-user-list></app-user-list>
+
+  </div>
+</div>

@@ -1,0 +1,61 @@
+.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
+  color: #F3F6F8;
+  //
+  justify-content: left;
+  background-color: #FCFCFC;
+
+  &.isMyMsg {
+    justify-content: flex-end;
+    color: #686868;
+  }
+
+  .avatar-container {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border: 1px solid transparent;
+    border-radius: 50%;
+
+    .user-img { }
+  }
+
+
+  .msg-container {
+    min-height: 50px;
+    position: relative;
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 23px;
+    margin: 0 10px;
+    //
+    background-color: #3E4052;
+
+    &.isMyMsg {
+      background-color: #DFDFDF;
+    }
+
+    .msg {
+      font-size: 16px;
+    }
+
+    .timestamp {
+      display: inline-block;
+      position: absolute;
+      bottom: -20px;
+      z-index: 77777;
+      color: #BCBCBC;
+      font-size: 12px;
+      //
+      left: 0;
+
+      &.isMyMsg {
+        left: initial;
+        right: 0;
+      }
+    }
+  }
+}

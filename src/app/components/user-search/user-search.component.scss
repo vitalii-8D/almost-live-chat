@@ -1,0 +1,38 @@
+.container {
+  width: 100%;
+  color: #727272;
+
+  .search-form {
+    position: relative;
+    width: 100%;
+    padding: 15px;
+
+    &-input {
+      width: 100%;
+      font-family: 'Roboto', sans-serif;
+      background-color: #F9F9F9;
+      border: 1px solid #E3E3E3;
+      border-radius: 25px;
+      padding: 10px 10px 10px 40px;
+      font-size: 14px;
+    }
+
+    .btn {
+      width: 20px;
+      height: 20px;
+
+      position: absolute;
+      top: 50%;
+      left: 25px;
+      transform: translate(0, -50%);
+      cursor: pointer;
+
+      border: 1px solid transparent;
+      border-radius: 50%;
+
+      .search-icon {
+        font-size: 20px;
+      }
+    }
+  }
+}
