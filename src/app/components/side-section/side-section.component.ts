@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {ChatBaseService} from '../../services/chat-base.service';
 import {IUser, IChat} from '../../models/indes';
+import {AuthService} from '../../services/auth.service';
+import {DataBaseService} from '../../services/data-base.service';
+import {StateService} from '../../services/state.service';
 
 @Component({
   selector: 'app-side-section',
@@ -8,13 +10,15 @@ import {IUser, IChat} from '../../models/indes';
   styleUrls: ['./side-section.component.scss']
 })
 export class SideSectionComponent implements OnInit {
-  user: IUser;
-  chat: IChat;
-  fetched: any;
 
-  constructor(public chatService: ChatBaseService) {
+  constructor(public authService: AuthService,
+              private dataService: DataBaseService,
+              private stateService: StateService) {
   }
 
   ngOnInit(): void {
+    this.dataService.getAllUsers().subscribe(items => {
+      this.stateService.users = items;
+    });
   }
 }

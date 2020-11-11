@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ChatBaseService} from '../../services/chat-base.service';
-import {IChat} from '../../models/chat.model';
+import {ActivatedRoute} from '@angular/router';
+import {AuthService} from '../../services/auth.service';
+import {DataBaseService} from '../../services/data-base.service';
 
 @Component({
   selector: 'app-chat-zone',
@@ -8,14 +10,21 @@ import {IChat} from '../../models/chat.model';
   styleUrls: ['./chat-zone.component.scss']
 })
 export class ChatZoneComponent implements OnInit {
-  chats: IChat[];
+  user;
+  // chat;
 
-  constructor(private chatService: ChatBaseService) { }
+  constructor(private chatService: ChatBaseService,
+              private activatedRoute: ActivatedRoute,
+              private authService: AuthService,
+              private dataService: DataBaseService) {
+  }
 
   ngOnInit(): void {
-    this.chatService.getAllChats().subscribe(items => {
-      this.chats = items;
-      // console.log(items);
+    this.activatedRoute.params.subscribe(params => {
+      const {user} = history.state;
+      this.user = user;
+      console.log('history.state');
+      console.log(history.state);
     });
   }
 }

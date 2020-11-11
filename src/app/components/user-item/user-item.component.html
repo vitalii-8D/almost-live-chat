@@ -1,27 +1,27 @@
-<div class="container" [ngClass]="{'bg-c_white': isSideUser, 'no-border': withNoName}">
+<div class="container" [ngClass]="{'bg-c_white': isSideUser, 'no-border': withNoName}" *ngIf="!(isSideUser && user.id === this.authService.authUser.id)">
 
   <div class="avatar-container">
     <div class="user-img">
-      <img src="{{user.avatar}}" alt="{{user.name}}">
+      <img src="{{user?.avatar}}" alt="{{user?.name}}">
     </div>
 
-    <span class="material-icons online-mark online">check_circle_outline</span>
+    <span [ngClass]="{'active': !!withNoName || user.status === 'online'}" class="material-icons online-mark online">check_circle_outline</span>
+    <span [ngClass]="{'active': !withNoName && !(user.status === 'online')}" class="material-icons online-mark">highlight_off</span>
   </div>
-<!--    [ngClass]="{'active': !!withNoName || user.status === 'online'}"-->
-<!--    <span [ngClass]="{'active': !withNoName && !user.status === 'online'}" class="material-icons online-mark">highlight_off</span>-->
 
   <div class="user-name" *ngIf="!withNoName && !isSideUser">
-    {{user.name}}
+    {{user?.name}}
   </div>
 
   <div class="user-side-name" *ngIf="isSideUser">
 
     <div class="info">
 
-      <div class="name">{{user.name}}</div>
-      <div class="timestamp">{{'jun 12, 2017'}}</div>
-    </div>
-    <div class="message">{{'Hellom whats up?'}}</div>
-  </div>
+      <div class="name">{{user?.name}}</div>
+      <div class="timestamp">{{user?.chat?.updatedAt | date: 'short'}}</div>
 
+    </div>
+    <div class="message">{{user?.chat?.messages[user.chat.messages.length - 1]?.body}}</div>
+
+  </div>
 </div>

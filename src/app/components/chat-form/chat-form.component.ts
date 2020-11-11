@@ -16,14 +16,18 @@ export class ChatFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  sendMessage() {
+
+  }
+
   addToDatabase(): void {
-    const args = this.query.split(';');
+    /*const args = this.query.split(';');
 
     // @ts-ignore
     const newUser = this.db.buildUser(...args);
     console.log(newUser);
 
     this.chatService.createUser(newUser);
-    this.query = '';
+    this.query = '';*/
   }
 }

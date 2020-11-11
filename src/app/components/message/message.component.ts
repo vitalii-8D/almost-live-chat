@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {IMessage, IUser} from '../../models/indes';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-message',
@@ -10,9 +11,10 @@ export class MessageComponent implements OnInit {
   @Input() message: IMessage;
   @Input() user: Partial<IUser>;
 
-  constructor() {
+  constructor(public authService: AuthService) {
   }
 
   ngOnInit(): void {
   }
+
 }

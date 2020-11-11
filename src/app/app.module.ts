@@ -22,6 +22,7 @@ import {DataBaseService} from './services/data-base.service';
 import {FormsModule} from '@angular/forms';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { SignPageComponent } from './components/sign-page/sign-page.component';
+import { OrderUsersPipe } from './pipes/order-users.pipe';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SignPageComponent } from './components/sign-page/sign-page.component';
     FeedComponent,
     MessageComponent,
     LoginPageComponent,
-    SignPageComponent
+    SignPageComponent,
+    OrderUsersPipe
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,8 @@
 <div class="container">
-  <app-user-item *ngFor="let user of users" [user]="user" class="user-item" [isSideUser]="true"></app-user-item>
+  <app-user-item
+    *ngFor="let user of users"
+    [user]="user" class="user-item"
+    [isSideUser]="true"
+    (click)="goToChat(user)">
+  </app-user-item>
 </div>

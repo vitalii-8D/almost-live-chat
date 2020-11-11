@@ -1,18 +1,19 @@
-<div class="container" [ngClass]="{'isMyMsg': message.isMyMsg}">
+<div class="container" [ngClass]="{'isMyMsg': +message.user_id === this.authService.authUser.id}">
 
-  <div class="avatar-container" *ngIf="!message.isMyMsg">
+  <div class="avatar-container" *ngIf="+message.user_id === user.id">
     <div class="user-img">
       <img src="{{user?.avatar}}" alt="{{user?.name}}">
     </div>
   </div>
 
-  <div class="msg-container" [ngClass]="{'isMyMsg': message.isMyMsg}">
 
-    <div class="msg" [ngClass]="{'isMyMsg': message.isMyMsg}">
+  <div class="msg-container" [ngClass]="{'isMyMsg': +message.user_id === this.authService.authUser.id}">
+
+    <div class="msg" [ngClass]="{'isMyMsg': +message.user_id === this.authService.authUser.id}">
       {{message?.body}}
     </div>
 
-    <div class="timestamp" [ngClass]="{'isMyMsg': message.isMyMsg}">
+    <div class="timestamp" [ngClass]="{'isMyMsg': +message.user_id === this.authService.authUser.id}">
 
       {{message?.createdAt | date:'short'}}
 

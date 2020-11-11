@@ -19,8 +19,21 @@ export class DataBaseService {
     return this.firestore.collection('chats').valueChanges();
   }
 
-  getUserByParam(param, value): Observable<IUser[]> {
+  getUserByParam(param, value): any {
     return this.firestore.collection('users', ref => ref.where(param, '==', value)).valueChanges();
+  }
+
+  getChatByUsers(userId1, userId2): any {
+    console.log(userId1, userId2);
+    return this.firestore.collection('chats', ref => ref
+      .where('members', 'array-contains-any', [userId1, userId2]))
+      .valueChanges();
+  }
+
+  getMyChats(userId): any {
+    return this.firestore.collection('chats', ref => ref
+      .where('members', 'array-contains', userId))
+      .valueChanges();
   }
 
   createUser(data): any {
