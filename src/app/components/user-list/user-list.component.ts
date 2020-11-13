@@ -11,15 +11,18 @@ import {StateService} from '../../services/state.service';
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit {
-  users: any;
+  // users: any;
 
-  constructor(public dataService: DataBaseService,
+  constructor(private dataService: DataBaseService,
               private authService: AuthService,
               private router: Router,
               public stateService: StateService) {
   }
 
   ngOnInit(): void {
+    this.dataService.getAllUsers().subscribe(items => {
+      this.stateService.users = items;
+    });
     this.dataService.getMyChats(this.authService.authUser.id).subscribe(items => {
       this.stateService.chats = items;
     });

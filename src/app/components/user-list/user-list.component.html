@@ -1,6 +1,6 @@
 <div class="container">
   <app-user-item
-    *ngFor="let user of users"
+    *ngFor="let user of this.stateService.users"
     [user]="user" class="user-item"
     [isSideUser]="true"
     (click)="goToChat(user)">

@@ -17,8 +17,5 @@ export class SideSectionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataService.getAllUsers().subscribe(items => {
-      this.stateService.users = items;
-    });
   }
 }

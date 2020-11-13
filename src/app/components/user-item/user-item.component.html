@@ -18,10 +18,10 @@
     <div class="info">
 
       <div class="name">{{user?.name}}</div>
-      <div class="timestamp">{{user?.chat?.updatedAt | date: 'short'}}</div>
+      <div class="timestamp">{{chat?.updatedAt | date: 'short'}}</div>
 
     </div>
-    <div class="message">{{user?.chat?.messages[user.chat.messages.length - 1]?.body}}</div>
+    <div class="message">{{chat?.messages[user.chat.messages.length - 1]?.body}}</div>
 
   </div>
 </div>
