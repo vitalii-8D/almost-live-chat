@@ -10,7 +10,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class ChatFormComponent implements OnInit {
   message: string;
-  chatMessages;
+  chatId: number;
 
   constructor(public db: DataBaseService,
               private activatedRoute: ActivatedRoute) {
@@ -18,11 +18,9 @@ export class ChatFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-      const {userId} = params;
-      console.log(this.chatMessages);
-      this.chatMessages = this.db.chats.find(chat => {
-        return chat.members.includes(userId);
-      }).messages;
+      const {chatId} = params;
+      this.chatId = +chatId;
+      console.log(chatId);
     });
   }
 
@@ -32,6 +30,7 @@ export class ChatFormComponent implements OnInit {
       createdAt: Date.now(),
       body: this.message
     };
-    this.chatMessages.push(newMessage);
+
+    this.db.addMessage(this.chatId).update()
   }
 }

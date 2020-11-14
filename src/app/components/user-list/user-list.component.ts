@@ -22,6 +22,9 @@ export class UserListComponent implements OnInit {
   }
 
   goToChat(user: IUser): void {
-    this.router.navigate(['chat', user.id], {state: {user}});
+    const usersChat = this.db.chats.find(chat => {
+      return chat.members.includes(user.id);
+    });
+    this.router.navigate(['chat', usersChat.id], {state: {user}});
   }
 }

@@ -21,13 +21,15 @@ export class ChatZoneComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       const {user} = history.state;
-
+      const {chatId} = params;
+      console.log(params);
       this.chat = this.db.chats.find(chat => {
-        return chat?.members.includes(user.id);
+        return +chat.id === +chatId;
       });
       this.user = user;
 
       this.isLoading = false;
+
       console.log('chat-zone');
       console.log(this.user);
       console.log(this.chat);

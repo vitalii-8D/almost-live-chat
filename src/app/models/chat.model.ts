@@ -1,12 +1,11 @@
 export interface IMessage {
   body: string;
   createdAt: any;
-  user_id: string;
-  isMyMsg?: boolean;
+  user_id: number;
 }
 
 export interface IChat {
-  id?: string;
+  id?: number;
   messages?: IMessage[];
   members?: number[];
   createdAt?: any;

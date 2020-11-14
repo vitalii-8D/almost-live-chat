@@ -38,6 +38,10 @@ export class DataBaseService {
     return this.firestore.collection('users', ref => ref.where(param, '==', value)).valueChanges();
   }
 
+  addMessage(chatId): any {
+    return this.firestore.collection('chats', ref => ref.where('id', '==', chatId));
+  }
+
   /*getChatByUser(userId): any {
     return this.firestore.collection('chats', ref => ref
       .where('members', 'in', [[this.authUser.id, userId]]))
