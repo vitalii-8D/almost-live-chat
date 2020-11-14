@@ -10,9 +10,9 @@ import {AuthService} from '../../services/auth.service';
 })
 export class FeedComponent implements OnInit {
   @Input() messages: IMessage[];
-  @Input() user;
+  @Input() user: IUser;
 
-  constructor(public chatServise: ChatBaseService) {
+  constructor() {
   }
 
   ngOnInit(): void {

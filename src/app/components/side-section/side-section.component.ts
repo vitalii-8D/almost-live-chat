@@ -1,8 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {IUser, IChat} from '../../models/indes';
-import {AuthService} from '../../services/auth.service';
 import {DataBaseService} from '../../services/data-base.service';
-import {StateService} from '../../services/state.service';
 
 @Component({
   selector: 'app-side-section',
@@ -11,9 +8,7 @@ import {StateService} from '../../services/state.service';
 })
 export class SideSectionComponent implements OnInit {
 
-  constructor(public authService: AuthService,
-              private dataService: DataBaseService,
-              private stateService: StateService) {
+  constructor(public db: DataBaseService) {
   }
 
   ngOnInit(): void {

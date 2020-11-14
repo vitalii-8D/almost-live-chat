@@ -1,10 +1,10 @@
 <div class="container">
 
-  <section class="side-section">
+  <section class="side-section" *ngIf="!isLoading">
     <app-side-section></app-side-section>
   </section>
 
-  <section class="chat-zone">
+  <section class="chat-zone" *ngIf="!isLoading">
     <router-outlet></router-outlet>
   </section>
 

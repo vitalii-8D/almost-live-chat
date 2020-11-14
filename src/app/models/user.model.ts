@@ -5,6 +5,6 @@ export interface IUser {
   password?: string;
   status?: string;
   avatar?: string;
-  chatRooms?: string[];
+  chatRooms?: number[];
   createdAt?: any;
 }

@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ChatBaseService} from '../../services/chat-base.service';
 import {ActivatedRoute} from '@angular/router';
-import {AuthService} from '../../services/auth.service';
 import {DataBaseService} from '../../services/data-base.service';
 
 @Component({
@@ -10,21 +9,28 @@ import {DataBaseService} from '../../services/data-base.service';
   styleUrls: ['./chat-zone.component.scss']
 })
 export class ChatZoneComponent implements OnInit {
+  isLoading = true;
   user;
-  // chat;
+  chat;
 
   constructor(private chatService: ChatBaseService,
               private activatedRoute: ActivatedRoute,
-              private authService: AuthService,
-              private dataService: DataBaseService) {
+              private db: DataBaseService) {
   }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       const {user} = history.state;
+
+      this.chat = this.db.chats.find(chat => {
+        return chat?.members.includes(user.id);
+      });
       this.user = user;
-      console.log('history.state');
-      console.log(history.state);
+
+      this.isLoading = false;
+      console.log('chat-zone');
+      console.log(this.user);
+      console.log(this.chat);
     });
   }
 }

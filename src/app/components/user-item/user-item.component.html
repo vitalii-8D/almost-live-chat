@@ -1,15 +1,15 @@
-<div class="container" [ngClass]="{'bg-c_white': isSideUser, 'no-border': withNoName}" *ngIf="!(isSideUser && user.id === this.authService.authUser.id)">
+<div class="container no-border" [ngClass]="{'bg-c_white': isSideUser}" *ngIf="!(isSideUser && user?.id === this.db.authUser.id)">
 
   <div class="avatar-container">
     <div class="user-img">
       <img src="{{user?.avatar}}" alt="{{user?.name}}">
     </div>
 
-    <span [ngClass]="{'active': !!withNoName || user.status === 'online'}" class="material-icons online-mark online">check_circle_outline</span>
-    <span [ngClass]="{'active': !withNoName && !(user.status === 'online')}" class="material-icons online-mark">highlight_off</span>
+    <span [ngClass]="{'active': user?.status === 'online'}" class="material-icons online-mark online">check_circle_outline</span>
+    <span [ngClass]="{'active': !(user?.status === 'online')}" class="material-icons online-mark">highlight_off</span>
   </div>
 
-  <div class="user-name" *ngIf="!withNoName && !isSideUser">
+  <div class="user-name" *ngIf="!isSideUser">
     {{user?.name}}
   </div>
 
@@ -21,7 +21,7 @@
       <div class="timestamp">{{chat?.updatedAt | date: 'short'}}</div>
 
     </div>
-    <div class="message">{{chat?.messages[user.chat.messages.length - 1]?.body}}</div>
+    <div class="message">{{chat?.messages[chat?.messages?.length - 1]?.body}}</div>
 
   </div>
 </div>

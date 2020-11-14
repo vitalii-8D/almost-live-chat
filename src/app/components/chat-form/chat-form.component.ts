@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DataBaseService} from '../../services/data-base.service';
 import {ChatBaseService} from '../../services/chat-base.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-chat-form',
@@ -8,26 +9,29 @@ import {ChatBaseService} from '../../services/chat-base.service';
   styleUrls: ['./chat-form.component.scss']
 })
 export class ChatFormComponent implements OnInit {
-  query: string;
+  message: string;
+  chatMessages;
 
-  constructor(private db: DataBaseService, private chatService: ChatBaseService) {
+  constructor(public db: DataBaseService,
+              private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe(params => {
+      const {userId} = params;
+      console.log(this.chatMessages);
+      this.chatMessages = this.db.chats.find(chat => {
+        return chat.members.includes(userId);
+      }).messages;
+    });
   }
 
-  sendMessage() {
-
-  }
-
-  addToDatabase(): void {
-    /*const args = this.query.split(';');
-
-    // @ts-ignore
-    const newUser = this.db.buildUser(...args);
-    console.log(newUser);
-
-    this.chatService.createUser(newUser);
-    this.query = '';*/
+  sendMessage(): void {
+    const newMessage = {
+      user_id: this.db.authUser.id,
+      createdAt: Date.now(),
+      body: this.message
+    };
+    this.chatMessages.push(newMessage);
   }
 }

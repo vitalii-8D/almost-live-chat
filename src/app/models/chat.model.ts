@@ -8,7 +8,7 @@ export interface IMessage {
 export interface IChat {
   id?: string;
   messages?: IMessage[];
-  members?: string[];
+  members?: number[];
   createdAt?: any;
   updatedAt?: any;
 }

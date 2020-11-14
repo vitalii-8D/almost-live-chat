@@ -2,17 +2,32 @@ import {Injectable} from '@angular/core';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {IUser} from '../models/user.model';
 import {Observable} from 'rxjs';
+import {IChat} from '../models/chat.model';
+import {tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataBaseService {
+  authUser: Partial<IUser> = {
+    avatar: 'https://via.placeholder.com/250/5ca174/a35e8b?text=29194',
+    chatRooms: [88888, 99999],
+    createdAt: 1603711846667,
+    id: 29194,
+    name: 'Vitalii Shlomenko',
+    status: 'online',
+    username: 'vitalikkeks',
+  };
+  users: IUser[];
+  chats: IChat[];
+  activeChatId: number;
 
   constructor(private firestore: AngularFirestore) {
   }
 
   getAllUsers(): Observable<IUser[]> {
-    return this.firestore.collection('users').valueChanges();
+    return this.firestore.collection('users').valueChanges()
+      .pipe(tap(users => this.users = users));
   }
 
   getAllChats(): any {
@@ -23,17 +38,17 @@ export class DataBaseService {
     return this.firestore.collection('users', ref => ref.where(param, '==', value)).valueChanges();
   }
 
-  getChatByUsers(userId1, userId2): any {
-    console.log(userId1, userId2);
+  /*getChatByUser(userId): any {
     return this.firestore.collection('chats', ref => ref
-      .where('members', 'array-contains-any', [userId1, userId2]))
+      .where('members', 'in', [[this.authUser.id, userId]]))
       .valueChanges();
-  }
+  }*/
 
-  getMyChats(userId): any {
+  getMyChats(userId): Observable<IChat[]> {
     return this.firestore.collection('chats', ref => ref
       .where('members', 'array-contains', userId))
-      .valueChanges();
+      .valueChanges()
+      .pipe(tap(chats => this.chats = chats));
   }
 
   createUser(data): any {
