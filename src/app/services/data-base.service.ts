@@ -67,6 +67,7 @@ export class DataBaseService {
         .add(data)
         .then(res => {
           this.updateUserId(res.id);
+          resolve({...data, id: res.id});
         }, err => reject(err));
     });
   }
