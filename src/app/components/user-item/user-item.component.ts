@@ -20,6 +20,8 @@ export class UserItemComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const {url} = this.router.routerState.snapshot;
+    const chatId = url.substr(6);
     this.chat = this.db.chats.find(chat => {
       return chat.members.includes(this.user.id);
     });

@@ -115,6 +115,19 @@ export class DataBaseService {
     };
   }
 
+  buildChat(userId, dialog): Partial<IChat> {
+    const members = [userId, this.authUser.id];
+    const messages = dialog;
+    const timestamp = Date.now();
+
+    return {
+      members,
+      messages,
+      createdAt: timestamp,
+      updatedAt: timestamp
+    };
+  }
+
   /*this.firestore.collection('chats', ref => ref
       .where('id', '==', chatId))
       .snapshotChanges()
