@@ -4,9 +4,11 @@ import {ChatComponent} from './components/chat/chat.component';
 import {LoginPageComponent} from './components/login-page/login-page.component';
 import {SignPageComponent} from './components/sign-page/sign-page.component';
 import {ChatZoneComponent} from './components/chat-zone/chat-zone.component';
+import {WelcomComponent} from './components/welcom/welcom.component';
 
 const routes: Routes = [
   {path: 'chat', component: ChatComponent, children: [
+      {path: '', component: WelcomComponent},
       {path: ':chatId', component: ChatZoneComponent}
     ]},
   {path: 'sign', component: SignPageComponent},

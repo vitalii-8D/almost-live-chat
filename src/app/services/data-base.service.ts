@@ -26,11 +26,25 @@ export class DataBaseService {
 
   getAllUsers(): Observable<IUser[]> {
     return this.firestore.collection('users').valueChanges()
-      .pipe(tap(users => {
-        this.users = users.filter((user: IUser) => {
-          return user.id !== this.authUser.id;
-        });
-      }));
+      .pipe(
+        /*tap(users => {
+          this.users = users.filter((user: IUser) => {
+            return user.id !== this.authUser.id;
+          });
+        })*/
+        tap(users => {
+          const userArr = users.filter((user: IUser) => {
+            return user.id !== this.authUser.id;
+          });
+          userArr.sort((a: IUser, b: IUser) => {
+            const updatedA = this.chats.find(chat => chat.members.includes(a.id))?.updatedAt || 1;
+            const updatedB = this.chats.find(chat => chat.members.includes(b.id))?.updatedAt || 1;
+
+            return updatedB - updatedA;
+          });
+          this.users = userArr;
+        })
+      );
   }
 
   getMyChats(): Observable<IChat[]> {

@@ -23,6 +23,7 @@ import {FormsModule} from '@angular/forms';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { SignPageComponent } from './components/sign-page/sign-page.component';
 import { OrderUsersPipe } from './pipes/order-users.pipe';
+import { WelcomComponent } from './components/welcom/welcom.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { OrderUsersPipe } from './pipes/order-users.pipe';
     MessageComponent,
     LoginPageComponent,
     SignPageComponent,
-    OrderUsersPipe
+    OrderUsersPipe,
+    WelcomComponent
   ],
   imports: [
     BrowserModule,
