@@ -14,8 +14,9 @@ export class ChatComponent implements OnInit {
 
   ngOnInit(): void {
     this.db.getMyChats().subscribe(chats => {
-      this.db.getAllUsers().subscribe(users => {});
-      this.isLoading = false;
+      this.db.getAllUsers().subscribe(users => {
+        this.isLoading = false;
+      });
     });
   }
 }

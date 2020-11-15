@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DataBaseService} from '../../services/data-base.service';
-import {ChatBaseService} from '../../services/chat-base.service';
 import {ActivatedRoute} from '@angular/router';
-import {IChat, IMessage} from '../../models/chat.model';
+import {IMessage} from '../../models/chat.model';
 
 @Component({
   selector: 'app-chat-form',
@@ -11,7 +10,7 @@ import {IChat, IMessage} from '../../models/chat.model';
 })
 export class ChatFormComponent implements OnInit {
   message: string;
-  chatId: number;
+  chatId: string;
   dialog: IMessage[];
 
   constructor(public db: DataBaseService,
@@ -34,7 +33,7 @@ export class ChatFormComponent implements OnInit {
     const newMessage = this.db.buildMessage(this.message);
     this.dialog.push(newMessage);
 
-    this.db.addMessageToChat(this.chatId, this.dialog);
+    this.db.addMessageToChat(this.chatId, this.dialog, newMessage.createdAt);
 
     this.message = '';
   }

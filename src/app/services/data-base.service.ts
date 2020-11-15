@@ -26,40 +26,28 @@ export class DataBaseService {
 
   getAllUsers(): Observable<IUser[]> {
     return this.firestore.collection('users').valueChanges()
-      .pipe(
-        /*tap(users => {
-          this.users = users.filter((user: IUser) => {
-            return user.id !== this.authUser.id;
-          });
-        })*/
-        tap(users => {
-          const userArr = users.filter((user: IUser) => {
-            return user.id !== this.authUser.id;
-          });
-          userArr.sort((a: IUser, b: IUser) => {
-            const updatedA = this.chats.find(chat => chat.members.includes(a.id))?.updatedAt || 1;
-            const updatedB = this.chats.find(chat => chat.members.includes(b.id))?.updatedAt || 1;
-
-            return updatedB - updatedA;
-          });
-          this.users = userArr;
-        })
-      );
+      .pipe(tap(users => {
+        this.users = users.filter((user: IUser) => {
+          return user.id !== this.authUser.id;
+        });
+      }));
   }
 
   getMyChats(): Observable<IChat[]> {
     return this.firestore.collection('chats', ref => ref
       .where('members', 'array-contains', this.authUser.id))
       .valueChanges()
-      .pipe(tap(chats => this.chats = chats));
+      .pipe(tap(chats => {
+        this.chats = chats;
+      }));
   }
 
   getChatById(chatId): Observable<IChat> {
     return this.firestore.collection('chats').doc(chatId).valueChanges();
   }
 
-  addMessageToChat(chatId, newDialog): void {
-    this.firestore.collection('chats').doc(chatId).update({messages: newDialog});
+  addMessageToChat(chatId, newDialog, timestamp): void {
+    this.firestore.collection('chats').doc(chatId).update({messages: newDialog, updatedAt: timestamp});
   }
 
   buildMessage(message): IMessage {
@@ -80,27 +68,29 @@ export class DataBaseService {
         .collection('users')
         .add(data)
         .then(res => {
-          this.updateUserId(res.id);
+          this.updateId(res.id, 'users');
           resolve({...data, id: res.id});
         }, err => reject(err));
     });
   }
 
-  updateUserId(id): Promise<void> {
-    return this.firestore
-      .collection('users')
-      .doc(id)
-      .set({id}, {merge: true});
-  }
-
-  createChat(data): any {
+  createChat(data): Promise<IChat> {
     return new Promise<any>((resolve, reject) => {
       this.firestore
         .collection('chats')
         .add(data)
         .then(res => {
+          this.updateId(res.id, 'chats');
+          resolve({...data, id: res.id});
         }, err => reject(err));
     });
+  }
+
+  updateId(id, collection): Promise<void> {
+    return this.firestore
+      .collection(collection)
+      .doc(id)
+      .set({id}, {merge: true});
   }
 
   buildUser(name, username, password): Partial<IUser> {

@@ -23,6 +23,9 @@ export class UserItemComponent implements OnInit {
     this.chat = this.db.chats.find(chat => {
       return chat.members.includes(this.user.id);
     });
+    if (!this.chat) {
+      this.chat = {id: 'unknown'};
+    }
   }
 
   goToChat(): void {
