@@ -3,7 +3,6 @@
     *ngFor="let user of this.db.users | orderUsers"
     [user]="user"
     class="user-item"
-    [isSideUser]="true"
-    (click)="goToChat(user)">
+    [isSideUser]="true">
   </app-user-item>
 </div>

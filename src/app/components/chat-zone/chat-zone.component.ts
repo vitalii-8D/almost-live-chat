@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {ChatBaseService} from '../../services/chat-base.service';
 import {ActivatedRoute} from '@angular/router';
 import {DataBaseService} from '../../services/data-base.service';
 
@@ -11,28 +10,18 @@ import {DataBaseService} from '../../services/data-base.service';
 export class ChatZoneComponent implements OnInit {
   isLoading = true;
   user;
-  chat;
+  // chat;
 
-  constructor(private chatService: ChatBaseService,
-              private activatedRoute: ActivatedRoute,
-              private db: DataBaseService) {
+  constructor(private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-      const {user} = history.state;
-      const {chatId} = params;
-      console.log(params);
-      this.chat = this.db.chats.find(chat => {
-        return +chat.id === +chatId;
-      });
+      const {user, chat} = history.state;
       this.user = user;
+      // this.chat = chat;
 
       this.isLoading = false;
-
-      console.log('chat-zone');
-      console.log(this.user);
-      console.log(this.chat);
     });
   }
 }

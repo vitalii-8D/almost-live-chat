@@ -1,4 +1,4 @@
-<div class="container no-border" [ngClass]="{'bg-c_white': isSideUser}" *ngIf="!(isSideUser && user?.id === this.db.authUser.id)">
+<div class="container no-border" [ngClass]="{'bg-c_white': isSideUser}" (click)="goToChat()">
 
   <div class="avatar-container">
     <div class="user-img">

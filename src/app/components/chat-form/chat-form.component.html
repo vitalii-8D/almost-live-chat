@@ -2,9 +2,9 @@
 
   <form class="chat-form">
 
-    <input type="text" [(ngModel)]="message" class="chat-form-input" name="input-message" placeholder="Type your message">
+    <input type="text" [(ngModel)]="message" class="chat-form-input" name="input-message" placeholder="Type your message" (keydown.enter)="send()">
 
-    <button type="button" class="btn" (click)="sendMessage()">
+    <button type="button" class="btn" (click)="send()">
       <span class="material-icons send-icon">send</span>
     </button>
 

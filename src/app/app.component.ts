@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {DataBaseService} from './services/data-base.service';
+import {AngularFirestore} from '@angular/fire/firestore';
+import firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'almost-live-chat';
+
+  constructor() {
+  }
 }
