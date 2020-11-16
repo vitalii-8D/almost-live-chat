@@ -1,6 +1,10 @@
 <div class="container">
   <form class="search-form">
-    <input type="text" class="search-form-input" name="user-query" placeholder="Search or start new chat">
+    <input
+      [(ngModel)]="this.db.searchString"
+      class="search-form-input"
+      name="user-query"
+      placeholder="Search or start new chat">
     <button type="button" class="btn">
       <span class="material-icons search-icon">search</span>
     </button>

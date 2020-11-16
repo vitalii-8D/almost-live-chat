@@ -22,6 +22,7 @@ export class DataBaseService {
   chats: IChat[];
 
   isChatActive = false;
+  searchString = '';
 
   constructor(private firestore: AngularFirestore) {
   }

@@ -15,7 +15,7 @@
     display: flex;
     justify-content: left;
     align-items: center;
-    height: 82px;
+    min-height: 82px;
     background-color: #F5F5F5;
     border-bottom: 2px solid #cccccc;
 
@@ -39,18 +39,15 @@
   }
 
   .feed {
-    //height: calc(100vh - 82px);
-    flex-grow: 1;
     background-color: #FCFCFC;
   }
 
   .chat-form {
-    //height: 120px;
+    min-height: 120px;
     background-color: #F5F5F5;
     border-top: 2px solid #cccccc;
 
     @media screen and (max-width: 701px) {
-      height: 100px;
     }
   }
 }

@@ -3,10 +3,12 @@
   <form class="chat-form">
 
     <textarea #tarea
-              wrap="hard"
+              wrap="soft"
+              rows="1"
               class="chat-form-input"
               name="input-message"
               placeholder="Type your message"
+              [value]="''"
               (keydown.enter)="send(tarea)">
     </textarea>
 

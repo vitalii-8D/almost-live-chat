@@ -1,6 +1,6 @@
 <div class="container">
   <app-user-item
-    *ngFor="let user of this.db.users | orderUsers"
+    *ngFor="let user of this.db.users | userFilter: this.db.searchString | orderUsers"
     [user]="user"
     class="user-item"
     [isSideUser]="true">

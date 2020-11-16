@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {IChat, IMessage, IUser} from '../../models/indes';
+import {AfterViewChecked, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {IChat, IUser} from '../../models/indes';
 import {ActivatedRoute} from '@angular/router';
 import {DataBaseService} from '../../services/data-base.service';
 
@@ -8,7 +8,9 @@ import {DataBaseService} from '../../services/data-base.service';
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.scss']
 })
-export class FeedComponent implements OnInit {
+export class FeedComponent implements OnInit, AfterViewChecked {
+  @ViewChild('scroller') private feedContainer: ElementRef;
+
   @Input() user: IUser;
   isLoading = true;
   chat: IChat;
@@ -27,5 +29,14 @@ export class FeedComponent implements OnInit {
         this.isLoading = false;
       });
     });
+  }
+
+  scrollToBottom(): void {
+    this.feedContainer.nativeElement.scrollTop
+      = this.feedContainer.nativeElement.scrollHeight;
+  }
+
+  ngAfterViewChecked(): void {
+    this.scrollToBottom();
   }
 }

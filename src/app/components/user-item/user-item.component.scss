@@ -1,13 +1,20 @@
+@import '../../constants';
+
 .container {
   display: flex;
   align-items: center;
   padding: 15px 15px;
 
   background-color: #F5F5F5;
+  cursor: pointer;
 
   &.bg-c_white {
     background-color: #FFFFFF;
     border-bottom: 2px solid #cccccc;
+
+    &:hover {
+      background-color: $color-font-bright;
+    }
   }
 
   &.no-border {
@@ -82,6 +89,8 @@
 
     .message {
       color: #999999;
+      max-height: 33px;
+      overflow: hidden;
     }
   }
 

@@ -24,7 +24,7 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { SignPageComponent } from './components/sign-page/sign-page.component';
 import { OrderUsersPipe } from './pipes/order-users.pipe';
 import { WelcomComponent } from './components/welcom/welcom.component';
-import { UserSearchPipe } from './pipes/user-search.pipe';
+import { UserFilterPipe } from './pipes/user-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -42,7 +42,7 @@ import { UserSearchPipe } from './pipes/user-search.pipe';
     SignPageComponent,
     OrderUsersPipe,
     WelcomComponent,
-    UserSearchPipe
+    UserFilterPipe
   ],
   imports: [
     BrowserModule,

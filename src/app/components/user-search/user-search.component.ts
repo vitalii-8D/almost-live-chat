@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DataBaseService} from '../../services/data-base.service';
 
 @Component({
   selector: 'app-user-search',
@@ -7,9 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserSearchComponent implements OnInit {
 
-  constructor() { }
+  constructor(public db: DataBaseService) { }
 
   ngOnInit(): void {
   }
-
 }

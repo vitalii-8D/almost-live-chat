@@ -1,15 +1,12 @@
 @import '../../constants';
 
 .container {
-  //height: 120px;
   padding: 20px 20px 40px;
 
   @media screen and (max-width: 701px) {
-    padding: 10px 10px 20px;
   }
 
   .chat-form {
-    //display: flex;
     position: relative;
 
     @media screen and (max-width: 701px) {
@@ -26,15 +23,24 @@
       border: 1px solid #E1E1E1;
       border-radius: 25px;
 
-      resize: vertical;
+      resize: none;
+      overflow-y: auto;
+      overflow: -moz-scrollbars-none;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
 
       &:focus {
         outline: none;
         border: 1px solid #E1E1E1;
+
+        box-shadow: 0 0 1px #22cef9, 0 0 2px #22cef9, 0 0 6px #22cef9,
+        inset 0 0 1px #22cef9, inset 0 0 2px #22cef9, inset 0 0 6px #22cef9;
       }
 
       @media screen and (min-width: 701px) {
-        padding: 10px 15px;
       }
     }
 
