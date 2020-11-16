@@ -13,7 +13,7 @@ export class FeedComponent implements OnInit, AfterViewChecked {
 
   @Input() user: IUser;
   isLoading = true;
-  chat: IChat;
+  // chat: IChat;
 
   constructor(private activatedRoute: ActivatedRoute,
               public db: DataBaseService) {
@@ -25,7 +25,8 @@ export class FeedComponent implements OnInit, AfterViewChecked {
       const {chatId} = params;
 
       this.db.getChatById(chatId).subscribe(chat => {
-        this.chat = chat;
+        // this.chat = chat;
+        this.db.activeChat = chat;
         this.isLoading = false;
       });
     });

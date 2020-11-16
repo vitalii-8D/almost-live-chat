@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {DataBaseService} from '../../services/data-base.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-side-section',
@@ -8,9 +9,15 @@ import {DataBaseService} from '../../services/data-base.service';
 })
 export class SideSectionComponent implements OnInit {
 
-  constructor(public db: DataBaseService) {
+  constructor(public db: DataBaseService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
+  }
+
+  logout(): void {
+    localStorage.clear();
+    this.router.navigate(['/login']);
   }
 }

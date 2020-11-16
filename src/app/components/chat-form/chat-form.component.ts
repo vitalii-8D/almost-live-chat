@@ -10,8 +10,6 @@ import {IUser} from '../../models/user.model';
   styleUrls: ['./chat-form.component.scss']
 })
 export class ChatFormComponent implements OnInit {
-  // message: string;
-
   chatId: string;
   dialog: IMessage[];
   user: IUser;
@@ -26,12 +24,14 @@ export class ChatFormComponent implements OnInit {
       const {chatId} = params;
 
       this.chatId = chatId;
-      this.dialog = history.state.chat?.messages || [];
       this.user = history.state.user;
+      // this.dialog = history.state.chat?.messages || [];
     });
   }
 
   send(tarea: HTMLTextAreaElement): void {
+    this.dialog = this.db.activeChat?.messages || [];
+
     const message = tarea.value;
     if (!message.trim()) {
       return;
@@ -39,13 +39,14 @@ export class ChatFormComponent implements OnInit {
     const newMessage = this.db.buildMessage(message);
     this.dialog.push(newMessage);
 
-    if (this.chatId === 'unknown') {
+    if (this.chatId.split('-')[0] === 'unknown') {
       const newChat = this.db.buildChat(this.user.id, this.dialog);
       this.db.createChat(newChat)
         .then(chat => {
           console.log(chat);
           this.router.navigate(['chat', chat.id], {state: {user: this.user, chat}});
         });
+      tarea.value = '';
       return;
     }
 

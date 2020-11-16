@@ -4,7 +4,9 @@
       "target": "almost-live-chat",
       "public": "dist/almost-live-chat",
       "ignore": [
-        "**/.*"
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
       ],
       "headers": [
         {

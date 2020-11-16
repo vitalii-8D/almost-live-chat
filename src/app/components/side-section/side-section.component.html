@@ -2,7 +2,10 @@
 
   <div class="profile-section">
 
-    <app-user-item [user]="this.db.authUser"></app-user-item>
+    <div class="profile-section-user">
+      <button type="button" class="logout"><span class="material-icons" (click)="logout()">backspace</span></button>
+      <app-user-item [user]="this.db.authUser"></app-user-item>
+    </div>
     <app-user-search></app-user-search>
 
   </div>

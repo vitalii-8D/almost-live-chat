@@ -1,7 +1,10 @@
 .container {
   width: 100%;
-  //height: 100%;
-  height: calc(100vh - 140px - 80px);
-  padding: 25px 20px;
+  height: calc(100vh - 100px - 88px);
+  padding: 5px 20px;
   overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }

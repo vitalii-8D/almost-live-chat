@@ -24,6 +24,8 @@ export class DataBaseService {
   isChatActive = false;
   searchString = '';
 
+  activeChat: IChat;
+
   constructor(private firestore: AngularFirestore) {
   }
 

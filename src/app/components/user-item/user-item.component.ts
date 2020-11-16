@@ -26,7 +26,7 @@ export class UserItemComponent implements OnInit {
       return chat.members.includes(this.user.id);
     });
     if (!this.chat) {
-      this.chat = {id: 'unknown'};
+      this.chat = {id: `unknown-${this.user.id}`};
     }
   }
 
