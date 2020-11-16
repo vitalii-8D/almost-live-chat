@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" [ngClass]="{'isChatActive': this.db.isChatActive}">
 
   <section class="side-section" *ngIf="!isLoading">
     <app-side-section></app-side-section>

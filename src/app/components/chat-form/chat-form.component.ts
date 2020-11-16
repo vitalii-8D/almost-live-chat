@@ -10,7 +10,7 @@ import {IUser} from '../../models/user.model';
   styleUrls: ['./chat-form.component.scss']
 })
 export class ChatFormComponent implements OnInit {
-  message: string;
+  // message: string;
 
   chatId: string;
   dialog: IMessage[];
@@ -31,11 +31,12 @@ export class ChatFormComponent implements OnInit {
     });
   }
 
-  send(): void {
-    if (!this.message.trim()) {
+  send(tarea: HTMLTextAreaElement): void {
+    const message = tarea.value;
+    if (!message.trim()) {
       return;
     }
-    const newMessage = this.db.buildMessage(this.message);
+    const newMessage = this.db.buildMessage(message);
     this.dialog.push(newMessage);
 
     if (this.chatId === 'unknown') {
@@ -50,6 +51,6 @@ export class ChatFormComponent implements OnInit {
 
     this.db.addMessageToChat(this.chatId, this.dialog, newMessage.createdAt);
 
-    this.message = '';
+    tarea.value = '';
   }
 }

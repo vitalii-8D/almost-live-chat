@@ -20,8 +20,8 @@ export class UserItemComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const {url} = this.router.routerState.snapshot;
-    const chatId = url.substr(6);
+    /*const {url} = this.router.routerState.snapshot;
+    const chatId = url.substr(6);*/
     this.chat = this.db.chats.find(chat => {
       return chat.members.includes(this.user.id);
     });
@@ -31,6 +31,7 @@ export class UserItemComponent implements OnInit {
   }
 
   goToChat(): void {
+    this.db.isChatActive = true;
     this.router.navigate(['chat', this.chat.id], {state: {user: this.user, chat: this.chat}});
   }
 }

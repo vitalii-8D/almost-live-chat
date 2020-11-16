@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {DataBaseService} from '../../services/data-base.service';
 
 @Component({
   selector: 'app-chat-zone',
@@ -10,7 +11,9 @@ export class ChatZoneComponent implements OnInit {
   isLoading = true;
   user;
 
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(private activatedRoute: ActivatedRoute,
+              private router: Router,
+              public db: DataBaseService) {
   }
 
   ngOnInit(): void {
@@ -20,5 +23,10 @@ export class ChatZoneComponent implements OnInit {
 
       this.isLoading = false;
     });
+  }
+
+  goToUserList(): void {
+    this.db.isChatActive = false;
+    this.router.navigate(['chat']);
   }
 }

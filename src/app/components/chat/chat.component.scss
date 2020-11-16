@@ -2,12 +2,32 @@
   display: flex;
   align-items: stretch;
 
+  @media screen and (max-width: 700px) {
+    position: absolute;
+    width: 200%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    transition: left linear .5s;
+  }
+
+  &.isChatActive {
+    @media screen and (max-width: 700px) {
+      left: -100%;
+    }
+  }
+
   .side-section {
     width: 30%;
     min-width: 220px;
     border-left: 2px solid #cccccc;
 
     background-color: #FFFFFF;
+
+    @media screen and (max-width: 700px) {
+      width: 50%;
+    }
   }
 
   .chat-zone {
@@ -17,5 +37,9 @@
     background-color: #FFFFFF;
     border-left: 2px solid #cccccc;
     border-right: 2px solid #cccccc;
+
+    @media screen and (max-width: 700px) {
+      width: 50%;
+    }
   }
 }

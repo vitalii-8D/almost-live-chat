@@ -1,5 +1,6 @@
 <div class="container" *ngIf="!isLoading">
   <div class="user-field">
+    <button type="button" (click)="goToUserList()" *ngIf="db.isChatActive"><span class="material-icons">arrow_back</span></button>
     <app-user-item [user]="user"></app-user-item>
   </div>
   <div class="feed">

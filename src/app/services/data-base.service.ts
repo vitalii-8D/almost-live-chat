@@ -21,6 +21,8 @@ export class DataBaseService {
   users: IUser[];
   chats: IChat[];
 
+  isChatActive = false;
+
   constructor(private firestore: AngularFirestore) {
   }
 
