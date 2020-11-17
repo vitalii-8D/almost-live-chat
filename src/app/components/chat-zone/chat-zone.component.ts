@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {DataBaseService} from '../../services/data-base.service';
 
@@ -7,7 +7,7 @@ import {DataBaseService} from '../../services/data-base.service';
   templateUrl: './chat-zone.component.html',
   styleUrls: ['./chat-zone.component.scss']
 })
-export class ChatZoneComponent implements OnInit {
+export class ChatZoneComponent implements OnInit, OnDestroy {
   isLoading = true;
   user;
 
@@ -23,6 +23,10 @@ export class ChatZoneComponent implements OnInit {
 
       this.isLoading = false;
     });
+  }
+
+  ngOnDestroy(): void {
+    this.db.isChatActive = false;
   }
 
   goToUserList(): void {

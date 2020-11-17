@@ -9,15 +9,7 @@ import {map, tap} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class DataBaseService {
-  authUser: Partial<IUser> = {
-    avatar: 'https://via.placeholder.com/250/5ca174/a35e8b?text=29194',
-    chatRooms: ['hhbx8DAJrVwDqfnbm4G8', ' k7vNegzI4nsHe83QAuql'],
-    createdAt: 1603711846667,
-    id: '0M7SGdy5F8OoZAftj5C9',
-    name: 'Vitalii Shlomenko',
-    status: 'online',
-    username: 'vitalikkeks',
-  };
+  authUser: Partial<IUser> = JSON.parse(localStorage.getItem('chat_user'));
   users: IUser[];
   chats: IChat[];
 

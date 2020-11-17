@@ -1,7 +1,4 @@
 import {Component, HostListener} from '@angular/core';
-import {DataBaseService} from './services/data-base.service';
-import {AngularFirestore} from '@angular/fire/firestore';
-import firebase from 'firebase';
 import {Router} from '@angular/router';
 
 @Component({
@@ -12,14 +9,6 @@ import {Router} from '@angular/router';
 
 export class AppComponent {
 
-  constructor(private router: Router) {
+  constructor() {
   }
-
-  // Reaction for back btn
-  @HostListener('window:popstate', ['$event'])
-  onPopState(event): void {
-    this.router.navigate(['/chat']);
-    console.log('Back button pressed');
-  }
-
 }
