@@ -25,7 +25,6 @@ export class ChatFormComponent implements OnInit {
 
       this.chatId = chatId;
       this.user = history.state.user;
-      // this.dialog = history.state.chat?.messages || [];
     });
   }
 

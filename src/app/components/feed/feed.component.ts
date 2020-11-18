@@ -38,6 +38,9 @@ export class FeedComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked(): void {
+    if (this.isLoading) {
+      return;
+    }
     this.scrollToBottom();
   }
 }

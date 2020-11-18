@@ -12,4 +12,9 @@ export class UserSearchComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  clear(search: HTMLInputElement): void {
+    search.value = '';
+    this.db.searchString = '';
+  }
 }

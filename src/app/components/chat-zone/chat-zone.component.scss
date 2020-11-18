@@ -25,6 +25,10 @@
     left: 0;
     right: 0;
 
+    @media screen and (max-width: 701px) {
+      position: fixed;
+    }
+
     button {
       font-size: 24px;
       margin: 0 15px;
@@ -61,6 +65,7 @@
     right: 0;
 
     @media screen and (max-width: 701px) {
+      position: fixed;
     }
   }
 }

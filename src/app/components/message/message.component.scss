@@ -21,6 +21,11 @@
     overflow: hidden;
     border: 1px solid transparent;
     border-radius: 50%;
+    flex: 0 0 50px;
+
+    &.isMyMsg {
+      display: none;
+    }
 
     .user-img { }
   }
@@ -43,12 +48,14 @@
     .msg {
       width: 100%;
       font-size: 16px;
-      overflow-wrap: break-word;
+      overflow-wrap: anywhere;
     }
 
     .timestamp {
       display: inline-block;
       position: absolute;
+      width: 250px;
+      text-align: left;
       bottom: -20px;
       z-index: 77777;
       color: #BCBCBC;
@@ -57,6 +64,7 @@
       left: 0;
 
       &.isMyMsg {
+        text-align: right;
         left: initial;
         right: 0;
       }

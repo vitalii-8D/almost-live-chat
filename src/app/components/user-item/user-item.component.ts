@@ -31,6 +31,9 @@ export class UserItemComponent implements OnInit {
   }
 
   goToChat(): void {
+    if (!this.isSideUser) {
+      return;
+    }
     this.db.isChatActive = true;
     this.router.navigate(['chat', this.chat.id], {state: {user: this.user, chat: this.chat}});
   }

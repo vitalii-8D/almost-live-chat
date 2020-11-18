@@ -9,7 +9,8 @@
               name="input-message"
               placeholder="Type your message"
               [value]="''"
-              (keydown.enter)="send(tarea)">
+              (keydown.enter)="send(tarea)"
+    maxlength="600">
     </textarea>
 
     <button type="button" class="btn" (click)="send(tarea)">

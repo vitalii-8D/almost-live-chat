@@ -59,6 +59,10 @@ export class DataBaseService {
     return this.firestore.collection('users', ref => ref.where(param, '==', value)).valueChanges();
   }
 
+  updateUsersChatRooms(roomId): void {
+
+  }
+
   createUser(data): Promise<IUser> {
     return new Promise<any>((resolve, reject) => {
       this.firestore
