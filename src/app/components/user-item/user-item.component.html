@@ -6,7 +6,7 @@
     </div>
 
     <span [ngClass]="{'active': user?.status === 'online'}" class="material-icons online-mark online">check_circle_outline</span>
-    <span [ngClass]="{'active': !(user?.status === 'online')}" class="material-icons online-mark">highlight_off</span>
+    <span [ngClass]="{'active': user?.status === 'offline'}" class="material-icons online-mark">highlight_off</span>
   </div>
 
   <div class="user-name" *ngIf="!isSideUser">

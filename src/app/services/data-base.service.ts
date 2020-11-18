@@ -59,6 +59,10 @@ export class DataBaseService {
     return this.firestore.collection('users', ref => ref.where(param, '==', value)).valueChanges();
   }
 
+  setUserStatus(userId, status): void {
+    this.firestore.collection('users').doc(userId).update({status});
+  }
+
   createUser(data): Promise<IUser> {
     return new Promise<any>((resolve, reject) => {
       this.firestore

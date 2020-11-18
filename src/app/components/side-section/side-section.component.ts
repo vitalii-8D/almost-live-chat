@@ -17,7 +17,8 @@ export class SideSectionComponent implements OnInit {
   }
 
   logout(): void {
-    localStorage.clear();
+    localStorage.removeItem('chat_user');
+    // this.db.setUserStatus(this.db.authUser.id, 'offline');
     this.router.navigate(['/login']);
   }
 }
