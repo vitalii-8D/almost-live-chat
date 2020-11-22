@@ -11,17 +11,4 @@ export class AppComponent {
 
   constructor(private db: DataBaseService) {
   }
-  /*@HostListener('window:unload', [ '$event' ])
-  unloadHandler(event): any {
-    this.db.setUserStatus(this.db.authUser.id, 'offline');
-  }
-
-  @HostListener('window:beforeunload', [ '$event' ])
-  beforeUnloadHandler(event: Event): any {
-    this.db.setUserStatus(this.db.authUser.id, 'offline');
-  }*/
-  /*unloadHandler(event: Event): any {
-    console.log(this.db.authUser);
-    this.db.setUserStatus(this.db.authUser.id, 'offline');
-  }*/
 }

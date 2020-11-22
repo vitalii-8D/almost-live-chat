@@ -1,8 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {DataBaseService} from '../../services/data-base.service';
 import {Router} from '@angular/router';
-import {IChat} from '../../models/chat.model';
-import {IUser} from '../../models/user.model';
 import {Subscription} from 'rxjs';
 
 @Component({

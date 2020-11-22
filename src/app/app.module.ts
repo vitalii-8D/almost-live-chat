@@ -25,6 +25,7 @@ import { SignPageComponent } from './components/sign-page/sign-page.component';
 import { OrderUsersPipe } from './pipes/order-users.pipe';
 import { WelcomComponent } from './components/welcom/welcom.component';
 import { UserFilterPipe } from './pipes/user-filter.pipe';
+import {AuthService} from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import { UserFilterPipe } from './pipes/user-filter.pipe';
     AngularFirestoreModule,
     FormsModule
   ],
-  providers: [ChatBaseService, DataBaseService],
+  providers: [ChatBaseService, DataBaseService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
