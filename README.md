@@ -1,5 +1,5 @@
-# Welcome to my first live chat
+# Live chat
+### Simple implementation created Angular & Firebase
 
-If the forestore data base is OKay, you can share this link to your friends, and take a comunication with them.
-
-https://almost-live-chat.web.app
+You can simply enjoy communication with your friends using my **[Messenger](https://almost-live-chat.web.app)**.
+> Of course if my Firebase subscription is not expired :(
